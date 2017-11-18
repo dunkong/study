@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 40px;
+    background-color: pink;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+.back{
+    position: absolute;
+    left: 0;
+}
+nav ul{
+    padding: 10px;
+    height: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+nav li{
+	width: 20%;
+	text-align: center;
+}
+nav .active{
+	border-bottom: 4px solid blueviolet;
+}
+.divs{
+	display: flex;
+}
