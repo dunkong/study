@@ -4,14 +4,20 @@
 }
 header{
     height: 40px;
-    background-color: pink;
+    background-color: red;
     text-align: center;
     line-height: 40px;
     position: relative;
 }
 .back{
     position: absolute;
-    left: 0;
+    left: 10px;
+    top: 50%;
+    margin-top: -15px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(../img/back.png) no-repeat;
 }
 nav ul{
     padding: 10px;
@@ -28,5 +34,102 @@ nav .active{
 	border-bottom: 4px solid blueviolet;
 }
 .divs{
-	display: flex;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+.divs #block{
+    position: absolute;
+}
+.divs div{
+    float: left;
+    width: 100%;
+    height: 200px;
+    background-color: red;
+}
+.tags{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.tags .tag{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 130px;
+    background-color: red;
+    margin-bottom: 35px
+}
+.columns{
+    display: flex;
+    justify-content: space-around;
+}
+.column{
+    width: 30%;
+    height: 80px;
+    background-color: red;
+    text-align: center;
+    padding-top: 80px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+.modules{
+    margin-bottom: 10px;
+}
+.modules h3{
+    margin-left: 3%;
+    margin-bottom: 5px;
+    border-left: 5px solid red;
+    padding-left: 5px;
+}
+.module{
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+}
+.module-left{
+    width: 30%;
+    background-color: red;
+}
+.module-right{
+    width: 60%;
+}
+.module-right span{
+    display: inline-block;
+    width: 48%;
+    background-color: #eee;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 18px;
+}
+.fromtime{
+    color: #ddd0d0
+}
+.article{
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    margin-bottom: 10px
+}
+.article-left{
+    width: 30%;
+    background-color: red;
+}
+.article-right{
+    width: 60%;
+    position: relative;
+}
+.article-right span{
+    position: absolute;
+    bottom: 2px;
+}
+.article1{
+    width: 95%;
+    margin: 0 auto;
+}
+.article1 .cover{
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
 }

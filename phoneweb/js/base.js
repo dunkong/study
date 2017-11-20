@@ -1,9 +1,12 @@
-var nav=document.getElementsByClassName("nav")[0].children;
-for(var i=0;i<nav.length;i++){
-	nav[i].onclick=function(){
-		for (var j=0;j<nav.length;j++) {
-			nav[j].className=""
+var navs=document.getElementsByClassName("nav")[0].children;
+var block=document.getElementById("block")
+for(var i=0;i<navs.length;i++){
+	navs[i].index=i
+	navs[i].onclick=function(){
+		for (var j=0;j<navs.length;j++) {
+			navs[j].className=""
 		}
 		this.className="active"
+		block.style.top="-200"*this.index+"px"
 	}
 }
