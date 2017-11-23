@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .num{
+            display: inline-block;
+            background-color: red;
+            text-align: center;
+            color: #ffffff;
+            margin: 10px;
+            padding: 10px;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="left_go">左侧入</button>
+    <button id="right_go">右侧入</button>
+    <button id="left_to">左侧出</button>
+    <button id="right_to">右侧出</button>
+    <button id="sort">排序</button>
+    <div id="nums"></div>
+    <script>
+        var input=document.getElementById("input");
+        var left_go=document.getElementById("left_go");
+        var right_go=document.getElementById("right_go");
+        var left_to=document.getElementById("left_to");
+        var right_to=document.getElementById("right_to");
+        var nums=document.getElementById("nums");
+        var sort=document.getElementById("sort")
+        function add(direction) {
+            var newnum=input.value;
+            parseInt(newnum);
+              if(direction=="left"){
+                  if(newnum<10 || newnum>100){
+                      alert("请输入正确的范围数字（10<number<100）")
+                  }
+                  else{
+                    var span=document.createElement("span");
+                    span.className="num";
+                    span.innerText=newnum;
+                    span.style.height=newnum+"px"
+                    nums.insertBefore(span,nums.firstChild)
+                  }
+              }
+              else if(direction=="right"){
+                if(newnum<10 || newnum>100){
+                      alert("请输入正确的范围数字（10<number<100）")
+                  }
+                  else{
+                    var span=document.createElement("span");
+                  span.className="num";
+                  span.innerText=newnum;
+                  span.style.height=newnum+"px"
+                  nums.appendChild(span)
+                  }
+              }
+        }
+        function del(direction){
+            if(direction=="left"){
+                nums.removeChild(nums.firstChild)
+            }
+            else if(direction=="right"){
+                nums.removeChild(nums.lastChild)
+            }
+        }
+        function bubbleSort(arr) {
+            var len = arr.length;
+            for (var i = 0; i < len; i++) {
+                for (var j = 0; j < len - 1 - i; j++) {
+                    if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
+                        var temp = arr[j+1];        // 元素交换
+                        arr[j+1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        sort.onclick=function(){
+            var numss=[];
+            var numsc=nums.children;
+            for(var i=0;i<numsc.length;i++){
+                numss.push(parseInt(numsc[i].innerText))
+            }
+            bubbleSort(numss)
+            nums.innerHTML=""
+            for(var j=0;j<numss.length;j++){
+                var span=document.createElement("span");
+                    span.className="num";
+                    span.innerText=numss[j];
+                    span.style.height=numss[j]+"px";
+                nums.appendChild(span)
+            }
+        }
+        left_go.onclick=function(){
+            add("left")
+        }
+        right_go.onclick=function(){
+            add("right")
+        }
+        left_to.onclick=function(){
+            del("left")
+        }
+        right_to.onclick=function(){
+            del("right")
+        }
+    </script>
+</body>
+</html>

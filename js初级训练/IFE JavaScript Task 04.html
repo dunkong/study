@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .num{
+            display: inline-block;
+            height: 40px;
+            background-color: red;
+            text-align: center;
+            line-height: 40px;
+            color: #ffffff;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="left_go">左侧入</button>
+    <button id="right_go">右侧入</button>
+    <button id="left_to">左侧出</button>
+    <button id="right_to">右侧出</button>
+    <div id="nums"></div>
+    <script>
+        var input=document.getElementById("input");
+        var left_go=document.getElementById("left_go");
+        var right_go=document.getElementById("right_go");
+        var left_to=document.getElementById("left_to");
+        var right_to=document.getElementById("right_to");
+        var nums=document.getElementById("nums");
+        function add(direction) {
+            var newnum=input.value;
+              if(direction=="left"){
+                  var span=document.createElement("span");
+                  span.className="num";
+                  span.innerText=newnum;
+                  nums.insertBefore(span,nums.firstChild)
+              }
+              else if(direction=="right"){
+                   var span=document.createElement("span");
+                  span.className="num";
+                  span.innerText=newnum;
+                  nums.appendChild(span)
+              }
+        }
+        function del(direction){
+            if(direction=="left"){
+                nums.removeChild(nums.firstChild)
+            }
+            else if(direction=="right"){
+                nums.removeChild(nums.lastChild)
+            }
+        }
+        left_go.onclick=function(){
+            add("left")
+        }
+        right_go.onclick=function(){
+            add("right")
+        }
+        left_to.onclick=function(){
+            del("left")
+        }
+        right_to.onclick=function(){
+            del("right")
+        }
+    </script>
+</body>
+</html>
